@@ -1,17 +1,23 @@
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.6433167016806722), rgba(0,0,0,0.6433167016806722)), url(https://images.unsplash.com/photo-1586899028174-e7098604235b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80)">
-  <h1>Welcome to your watch list</h1>
+<h1><span data-controller="typed-js"></span></h1>
 </div>
 <div class="container">
-  <div class="row">
+  <div class="row gap-3 justify-content-center">
     <% @lists.each do |list| %>
-    <div class="card col-4 mt-4 mb-4">
+    <div class="card col-lg-4 col-md-12 gy-5 gx-5 rounded card-home">
       <img class="card-img-top" src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title"><%= list.name %></h5>
-          <%= link_to "Check the content",  list_path(list)  %>
+        <h3 class="card-title"><%= list.name %></h3>
+          <%= link_to "Check the content",  list_path(list), class:"btn btn-dark"  %>
       </div>
     </div>
     <% end %>
   </div>
-  <%= link_to "Add a new list",  new_list_path  %>
+    <div class="d-flex justify-content-center">
+    <%= link_to "Add a new list",  new_list_path, class: "btn btn-success m-4" %>
+    <%= link_to 'Add a movie', new_movie_path, class: "btn btn-success m-4"  %>
+
+  </div>
+
+
 </div>

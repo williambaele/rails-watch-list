@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+
   def index
     @lists = List.all
   end
@@ -19,7 +20,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path
+      redirect_to list_path(@list)
     end
   end
   # UPDATE
@@ -35,13 +36,13 @@ class ListsController < ApplicationController
     end
   end
 
+
   def destroy
     @list = List.find(params[:id])
     if @list.destroy
-      redirect_to root_path
+      redirect_to lists_path
     end
   end
-
 
   private
   def list_params

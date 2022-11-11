@@ -1,11 +1,31 @@
-<h1><%= @list.name %> </h1>
-<% @bookmarks.each do |bookmark| %>
-  <ul>
-    <li><strong><%= bookmark.movie.title %></strong></li>
-    <li><%= bookmark.movie.rating %></li>
-    <li><%= bookmark.movie.overview %></li>
-  </ul>
-<% end %>
-
-<%= link_to "Back to the lists list",  lists_path  %><br>
-<%= link_to 'Create a bookmark', new_list_bookmark_path(@list), class: "btn btn-success"  %>
+<div class="container">
+<div class="mt-4 mb-4">
+  <div class="d-flex justify-content-between">
+  <h1><%= @list.name %></h1>
+      <%= link_to '❌', list_path(@list), method: :delete, class: 'btn btn-cancel', data: { turbo_method: :delete} %>
+  </div>
+    <div class="mb-4 mt-4 row">
+      <% @list.movies.each do |movie| %>
+            <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+            <div class="col-6 rounded mb-4" data-aos="zoom-in">
+              <div class="bg-white rounded shadow h-100">
+                <div class="p-3 rounded-bottom d-flex flex-column">
+                  <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> ⭐️</span></strong>
+                  <small class="text-muted mt-2"><%= movie.overview %></small>
+                  <div class="d-flex align-items-end justify-content-between pt-4">
+                    <div>
+                      📝 <small class="flex-grow-1"><%= bookmark.comment %></small>
+                    </div>
+                    <small class="text-right flex-shrink-0"><%= link_to '❌', bookmark_path(bookmark), method: :delete, data: { turbo_method: :delete }, class: 'text-decoration-none' %></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= link_to 'Back to the lists',  lists_path, class: "btn btn-dark m-4"  %>
+      <%= link_to 'Create a bookmark', new_list_bookmark_path(@list), class: "btn btn-success m-4"  %>
+    </div>
+</div>
+</div>

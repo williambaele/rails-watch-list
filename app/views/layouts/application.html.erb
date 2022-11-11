@@ -13,8 +13,8 @@
   </head>
 
   <body>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="navbar navbar-expand-sm sticky-top navbar-light navbar-lewagon">
+  <div class="container ">
     <a class="navbar-brand" href="/lists">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Popcorn_Time_logo.png?20140410070259"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
             <a class="nav-link" href="/lists">My lists</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-ghost" href="#">New list</a>
+            <a class="btn btn-ghost" href="/lists/new">New list</a>
           </li>
 
           <!--li class="nav-item"-->
@@ -37,17 +37,11 @@
 </div>
 
     <%= yield %>
-    <div class="footer">
+    <div class="footer navbar-fixed-bottom">
       <div class="footer-links">
         <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
-      <div class="footer-copyright">
-        This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-      </div>
+
     </div>
 
   </body>

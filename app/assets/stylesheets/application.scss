@@ -42,6 +42,15 @@ ul#menu li {
   transition: opacity 0.3s ease;
 }
 
+.btn-delete {
+  color: #fa0000;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -80,4 +89,8 @@ ul#menu li {
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.card-home {
+  width: 30% !important;
 }
